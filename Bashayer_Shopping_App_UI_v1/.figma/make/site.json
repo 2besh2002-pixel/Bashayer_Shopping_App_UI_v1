@@ -1,0 +1,11 @@
+{
+  "title": "Bashayer_Shopping_App_UI_v1",
+  "description": "Shop fashion across clothing, shoes, bags, and accessories with product discovery, wishlists, cart management, and a streamlined checkout in Arabic or English.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

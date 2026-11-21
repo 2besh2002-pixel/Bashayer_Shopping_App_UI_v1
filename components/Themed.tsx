@@ -1,8 +1,11 @@
+import * as React from 'react';
 /**
  * Learn more about Light and Dark modes:
  * https://docs.expo.io/guides/color-schemes/
  */
 import { Text as DefaultText, View as DefaultView } from 'react-native';
+import { AppText } from '@/src/components/ui/AppText';
+import { useSettingsStore } from '@/src/stores/settingsStore';
 
 import { useColorScheme } from './useColorScheme';
 
@@ -13,8 +16,8 @@ type ThemeProps = {
   darkColor?: string;
 };
 
-export type TextProps = ThemeProps & DefaultText['props'];
-export type ViewProps = ThemeProps & DefaultView['props'];
+export type TextProps = ThemeProps & React.ComponentProps<typeof DefaultText>;
+export type ViewProps = ThemeProps & React.ComponentProps<typeof DefaultView>;
 
 export function useThemeColor(
   props: { light?: string; dark?: string },
@@ -34,12 +37,18 @@ export function Text(props: TextProps) {
   const { style, lightColor, darkColor, ...otherProps } = props;
   const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
 
-  return <DefaultText style={[{ color }, style]} {...otherProps} />;
+  return <AppText style={[{ color }, style]} {...otherProps} />;
 }
 
 export function View(props: ViewProps) {
   const { style, lightColor, darkColor, ...otherProps } = props;
   const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, 'background');
+  const lang = useSettingsStore((state) => state.lang);
 
-  return <DefaultView style={[{ backgroundColor }, style]} {...otherProps} />;
+  return (
+    <DefaultView
+      style={[{ backgroundColor, direction: lang === 'ar' ? 'rtl' : 'ltr' }, style]}
+      {...otherProps}
+    />
+  );
 }

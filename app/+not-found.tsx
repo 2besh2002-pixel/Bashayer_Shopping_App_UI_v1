@@ -1,40 +1,26 @@
-import { Link, Stack } from 'expo-router';
-import { StyleSheet } from 'react-native';
-
-import { Text, View } from '@/components/Themed';
+import { Stack, useRouter } from 'expo-router';
+import { View } from 'react-native';
+import { AppText } from '@/src/components/ui/AppText';
+import { Button } from '@/src/components/ui/Button';
+import { Screen } from '@/src/components/ui/Screen';
+import { useTranslation } from '@/src/hooks/useTranslation';
 
 export default function NotFoundScreen() {
+  const router = useRouter();
+  const { t } = useTranslation();
   return (
     <>
-      <Stack.Screen options={{ title: 'Oops!' }} />
-      <View style={styles.container}>
-        <Text style={styles.title}>This screen doesn't exist.</Text>
-
-        <Link href="/" style={styles.link}>
-          <Text style={styles.linkText}>Go to home screen!</Text>
-        </Link>
-      </View>
+      <Stack.Screen options={{ headerShown: false }} />
+      <Screen edges={['top', 'bottom']}>
+        <View className="flex-1 items-center justify-center px-8">
+          <AppText weight={700} className="mb-4 text-center text-[16px] text-ink">
+            {t('somethingWrong')}
+          </AppText>
+          <Button onPress={() => router.replace('/(tabs)')}>
+            {t('titleHome')}
+          </Button>
+        </View>
+      </Screen>
     </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 20,
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  link: {
-    marginTop: 15,
-    paddingVertical: 15,
-  },
-  linkText: {
-    fontSize: 14,
-    color: '#2e78b7',
-  },
-});

@@ -1,35 +1,24 @@
 import { StatusBar } from 'expo-status-bar';
-import { Platform, StyleSheet } from 'react-native';
-
-import EditScreenInfo from '@/components/EditScreenInfo';
-import { Text, View } from '@/components/Themed';
+import { Platform, View } from 'react-native';
+import { AppText } from '@/src/components/ui/AppText';
+import { PageHeader } from '@/src/components/ui/PageHeader';
+import { Screen } from '@/src/components/ui/Screen';
+import { useTranslation } from '@/src/hooks/useTranslation';
 
 export default function ModalScreen() {
+  const { t } = useTranslation();
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Modal</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/modal.tsx" />
-
-      {/* Use a light status bar on iOS to account for the black space above the modal */}
+    <Screen edges={['top', 'bottom']}>
+      <PageHeader title={t('brandName')} showBack />
+      <View className="flex-1 items-center justify-center px-8">
+        <AppText weight={700} className="text-center text-[16px] text-ink">
+          {t('demoBadge')}
+        </AppText>
+        <AppText className="mt-2 text-center text-[11px] text-muted">
+          {t('brandTagline')}
+        </AppText>
+      </View>
       <StatusBar style={Platform.OS === 'ios' ? 'light' : 'auto'} />
-    </View>
+    </Screen>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
-  },
-});

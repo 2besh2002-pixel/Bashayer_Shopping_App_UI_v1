@@ -1,31 +1,22 @@
-import { StyleSheet } from 'react-native';
-
-import EditScreenInfo from '@/components/EditScreenInfo';
-import { Text, View } from '@/components/Themed';
+import { View } from 'react-native';
+import { AppText } from '@/src/components/ui/AppText';
+import { PageHeader } from '@/src/components/ui/PageHeader';
+import { Screen } from '@/src/components/ui/Screen';
+import { useTranslation } from '@/src/hooks/useTranslation';
 
 export default function TabTwoScreen() {
+  const { t } = useTranslation();
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Tab Two</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/(tabs)/two.tsx" />
-    </View>
+    <Screen edges={['top', 'bottom']}>
+      <PageHeader title={t('demoBadge')} />
+      <View className="flex-1 items-center justify-center px-8">
+        <AppText weight={700} className="text-center text-[16px] text-ink">
+          {t('brandName')}
+        </AppText>
+        <AppText className="mt-2 text-center text-[11px] text-muted">
+          {t('prototypeNote')}
+        </AppText>
+      </View>
+    </Screen>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
-  },
-});

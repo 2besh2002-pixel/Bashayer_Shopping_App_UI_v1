@@ -1,0 +1,502 @@
+import type { Lang } from "@/src/types";
+
+/**
+ * Centralized translation dictionary.
+ *
+ * Every user-facing string lives here (Arabic is the default / source language).
+ * Screens call `t("key")` from the `useTranslation` hook. Do NOT hardcode
+ * user-facing copy inside components.
+ */
+export const translations = {
+  // ---------- Brand / common ----------
+  brandName: { ar: "نسيج", en: "NASEEJ" },
+  brandTagline: { ar: "أناقةٌ تُشبهكِ", en: "Elegance, your way." },
+  prototypeNote: {
+    ar: "محتوى وأسعار العرض توضيحية للنموذج الأولي.",
+    en: "Product content and prices are illustrative prototype data.",
+  },
+  demoBadge: { ar: "نسخة تجريبية محلية", en: "Local demo build" },
+  editScreenOpenCode: {
+    ar: "افتحي الشيفرة البرمجية لهذه الشاشة:",
+    en: "Open up the code for this screen:",
+  },
+  editScreenHotReload: {
+    ar: "عدّلي أي نص ثم احفظي الملف لتظهر التغييرات تلقائياً.",
+    en: "Change any text, save the file, and the app will update automatically.",
+  },
+  editScreenReloadHelp: {
+    ar: "اضغطي هنا إذا لم يتحدث التطبيق تلقائياً بعد إجراء التغييرات.",
+    en: "Tap here if your app does not update automatically after making changes.",
+  },
+  loading: { ar: "جارٍ التحميل...", en: "Loading..." },
+  retry: { ar: "إعادة المحاولة", en: "Try again" },
+  somethingWrong: { ar: "حدث خطأ غير متوقع", en: "Something went wrong" },
+
+  // ---------- Bottom navigation ----------
+  navCategories: { ar: "الأقسام", en: "Categories" },
+  navWishlist: { ar: "المفضلة", en: "Wishlist" },
+  navHome: { ar: "الرئيسية", en: "Home" },
+  navCart: { ar: "السلة", en: "Cart" },
+  navAccount: { ar: "حسابي", en: "Account" },
+  mainNavigation: { ar: "التنقل الرئيسي", en: "Main navigation" },
+
+  // ---------- Home ----------
+  homeSeasonEdit: { ar: "تحرير الموسم · ٢٠٢٥", en: "THE SEASON EDIT · 2025" },
+  homeHeroTitle: { ar: "أناقةٌ\nتُشبهكِ", en: "Elegance,\nyour way." },
+  homeHeroSubtitle: {
+    ar: "قصّات انسيابية بألوان الموسم الدافئة",
+    en: "Fluid silhouettes in the season’s warmest tones",
+  },
+  shopCollection: { ar: "تسوّقي المجموعة", en: "Shop the collection" },
+  shopByCategory: { ar: "تسوّقي حسب القسم", en: "Shop by category" },
+  viewAll: { ar: "عرض الكل", en: "View all" },
+  moodBannerLabel: { ar: "تحرير نسيج", en: "NASEEJ EDIT" },
+  moodBannerTitle: { ar: "درجاتٌ من العنّابي", en: "Notes of burgundy" },
+  moodBannerSubtitle: {
+    ar: "مجموعة مختارة للحظات الخريف",
+    en: "A curated collection for autumn moments",
+  },
+  newArrivals: { ar: "وصل حديثاً", en: "New arrivals" },
+  searchPlaceholder: {
+    ar: "ابحثي عن فستان، حقيبة، أو علامة...",
+    en: "Search dresses, bags or brands...",
+  },
+
+  // ---------- Header / auth links ----------
+  notifications: { ar: "الإشعارات", en: "Notifications" },
+  login: { ar: "دخول", en: "Log in" },
+  register: { ar: "حساب جديد", en: "Register" },
+  logout: { ar: "خروج", en: "Logout" },
+  loginLong: { ar: "تسجيل الدخول", en: "Log in" },
+  logoutLong: { ar: "تسجيل الخروج", en: "Log out" },
+
+  // ---------- Screen titles ----------
+  titleHome: { ar: "الرئيسية", en: "Home" },
+  titleCategories: { ar: "الأقسام", en: "Categories" },
+  titleWishlist: { ar: "قائمة الأمنيات", en: "Wishlist" },
+  titleCart: { ar: "حقيبة التسوق", en: "Shopping Bag" },
+  titleProfile: { ar: "حسابي", en: "My Profile" },
+  titleSearch: { ar: "البحث", en: "Search" },
+  titleProduct: { ar: "تفاصيل القطعة", en: "Product Details" },
+  titleSizeGuide: { ar: "دليل المقاسات", en: "Size Guide" },
+  titleLogin: { ar: "تسجيل الدخول", en: "Log In" },
+  titleRegister: { ar: "إنشاء حساب", en: "Create Account" },
+  titleCheckout: { ar: "إتمام الطلب", en: "Checkout" },
+  titleOrders: { ar: "طلباتي", en: "My Orders" },
+  titleNotifications: { ar: "الإشعارات", en: "Notifications" },
+  titleSettings: { ar: "الإعدادات", en: "Settings" },
+  titleConfirmation: { ar: "تم الطلب", en: "Order Confirmed" },
+  titleAddresses: { ar: "عناويني", en: "My Addresses" },
+  titleSupport: { ar: "المساعدة", en: "Support" },
+  titleOrderDetails: { ar: "تفاصيل الطلب", en: "Order Details" },
+  back: { ar: "رجوع", en: "Back" },
+
+  // ---------- Product card / product ----------
+  addToWishlist: { ar: "إضافة للمفضلة", en: "Add to wishlist" },
+  removeFromWishlist: { ar: "إزالة من المفضلة", en: "Remove from wishlist" },
+  exclusive: { ar: "حصري", en: "Exclusive" },
+  isNew: { ar: "جديد", en: "New" },
+  bestSeller: { ar: "الأكثر مبيعاً", en: "Best seller" },
+  justIn: { ar: "وصل حديثاً", en: "Just in" },
+  reviews: { ar: "تقييماً", en: "reviews" },
+  color: { ar: "اللون", en: "Color" },
+  size: { ar: "المقاس", en: "Size" },
+  sizeGuide: { ar: "دليل المقاسات", en: "Size guide" },
+  inStock: { ar: "متوفر", en: "In stock" },
+  selectSizeFirst: { ar: "اختاري المقاس قبل الإضافة", en: "Select a size before adding" },
+  soldOut: { ar: "غير متوفر", en: "Sold out" },
+  addToCart: { ar: "أضيفي إلى الحقيبة", en: "Add to bag" },
+  savePercent: { ar: "وفّري", en: "Save" },
+  detailsMaterial: { ar: "التفاصيل والخامة", en: "Details & material" },
+  deliveryReturns: { ar: "التوصيل والإرجاع", en: "Delivery & returns" },
+  sizeAndFit: { ar: "المقاسات والملاءمة", en: "Size & fit" },
+  productDetailsHeading: { ar: "تفاصيل القطعة", en: "THE DETAILS" },
+  productDetailsBody: {
+    ar: "وصف توضيحي للنموذج الأولي. تُعرض تفاصيل الخامة والقصّة والعناية فقط عند توفر بيانات المنتج الفعلية.",
+    en: "Illustrative prototype description. Material, fit and care details appear only when verified product data is available.",
+  },
+  noOptions: { ar: "لا توجد خيارات متاحة", en: "No options available" },
+  required: { ar: "مطلوب", en: "Required" },
+
+  // ---------- Wishlist ----------
+  wishlistEmptyTitle: { ar: "قائمتك بانتظار اختياراتك", en: "Your wishlist is waiting" },
+  wishlistEmptyText: {
+    ar: "احفظي القطع التي تحبينها لتعودي إليها بسهولة.",
+    en: "Save the pieces you love and come back anytime.",
+  },
+  discoverNew: { ar: "اكتشفي الجديد", en: "Discover new arrivals" },
+  addToList: { ar: "أضيفي للحقيبة", en: "Add to bag" },
+  removeItem: { ar: "إزالة", en: "Remove" },
+
+  // ---------- Cart ----------
+  cartEmptyTitle: { ar: "حقيبتك فارغة", en: "Your bag is empty" },
+  cartEmptyText: {
+    ar: "ابدئي بإضافة قطعك المفضلة، وسنحتفظ بها هنا.",
+    en: "Add your favorite pieces and we’ll keep them here.",
+  },
+  startShopping: { ar: "ابدئي التسوق", en: "Start shopping" },
+  freeDelivery: { ar: "توصيل مجاني", en: "Complimentary delivery" },
+  freeDeliveryHint: {
+    ar: "تُحسب الأهلية وفق عنوان التوصيل",
+    en: "Eligibility is based on your address",
+  },
+  sizeLabel: { ar: "المقاس", en: "Size" },
+  colorLabel: { ar: "اللون", en: "Color" },
+  couponCode: { ar: "رمز القسيمة", en: "Coupon code" },
+  enterCode: { ar: "أدخلي الرمز", en: "Enter code" },
+  apply: { ar: "تطبيق", en: "Apply" },
+  couponApplied: { ar: "تم تطبيق القسيمة", en: "Coupon applied" },
+  couponInvalid: { ar: "رمز القسيمة غير صالح", en: "Invalid coupon code" },
+  bagSummary: { ar: "ملخص الحقيبة", en: "Bag summary" },
+  subtotal: { ar: "المجموع الفرعي", en: "Subtotal" },
+  discounts: { ar: "الخصومات", en: "Discounts" },
+  delivery: { ar: "رسوم التوصيل", en: "Delivery" },
+  calculatedLater: { ar: "تُحسب لاحقاً", en: "Calculated later" },
+  total: { ar: "الإجمالي", en: "Total" },
+  continueToCheckout: { ar: "متابعة الدفع", en: "Continue to checkout" },
+  increaseQty: { ar: "زيادة الكمية", en: "Increase quantity" },
+  decreaseQty: { ar: "تقليل الكمية", en: "Decrease quantity" },
+  itemAddedToCart: { ar: "تمت الإضافة إلى الحقيبة", en: "Added to your bag" },
+  itemRemovedFromCart: { ar: "تمت الإزالة من الحقيبة", en: "Removed from your bag" },
+  wishlistUpdated: { ar: "تم تحديث قائمة الأمنيات", en: "Wishlist updated" },
+
+  // ---------- Profile ----------
+  welcomeToBrand: { ar: "أهلاً بكِ في نسيج", en: "Welcome to NASEEJ" },
+  guestProfileTitle: {
+    ar: "كل اختياراتكِ في مكانٍ واحد",
+    en: "Your style, all in one place",
+  },
+  guestProfileText: {
+    ar: "سجّلي الدخول لتتبّع الطلبات، وإدارة العناوين، والعودة إلى قوائمك من أي جهاز.",
+    en: "Log in to track orders, manage addresses, and access your lists from any device.",
+  },
+  createAccount: { ar: "إنشاء حساب جديد", en: "Create an account" },
+  orderTracking: { ar: "تتبّع الطلب", en: "Order tracking" },
+  orderTrackingHint: {
+    ar: "تحديثات واضحة خطوة بخطوة",
+    en: "Clear step-by-step updates",
+  },
+  savedFavorites: { ar: "مفضّلاتك محفوظة", en: "Saved favorites" },
+  savedFavoritesHint: { ar: "من أي جهاز وفي أي وقت", en: "On every device, anytime" },
+  welcomeBack: { ar: "مرحباً بعودتكِ", en: "Welcome back" },
+  myOrders: { ar: "طلباتي", en: "My orders" },
+  myWishlist: { ar: "قائمة الأمنيات", en: "My wishlist" },
+  myAddresses: { ar: "عناويني", en: "My addresses" },
+  settings: { ar: "الإعدادات", en: "Settings" },
+  supportFaq: { ar: "المساعدة والأسئلة الشائعة", en: "Support & FAQ" },
+  edit: { ar: "تعديل", en: "Edit" },
+  demoUser: { ar: "نورة العتيبي", en: "Noura Alotaibi" },
+
+  // ---------- Search ----------
+  searchInBrand: { ar: "ابحثي في نسيج", en: "Search NASEEJ" },
+  recentSearches: { ar: "عمليات البحث الأخيرة", en: "Recent searches" },
+  clearAll: { ar: "مسح الكل", en: "Clear all" },
+  popularNow: { ar: "الأكثر بحثاً", en: "Popular now" },
+  trending: { ar: "رائج", en: "Trending" },
+  searchResults: { ar: "نتائج البحث", en: "Search results" },
+  items: { ar: "قطع", en: "items" },
+  filter: { ar: "تصفية", en: "Filter" },
+  sort: { ar: "ترتيب", en: "Sort" },
+  noResults: { ar: "لا توجد نتائج", en: "No results found" },
+  noResultsHint: {
+    ar: "جرّبي البحث بكلمة أخرى أو أضيفي تصفية أقل.",
+    en: "Try a different keyword or fewer filters.",
+  },
+  clear: { ar: "مسح", en: "Clear" },
+  searchTrending1: { ar: "فساتين الكتان", en: "Linen dresses" },
+  searchTrending2: { ar: "أحذية بكعب", en: "Heeled shoes" },
+  searchTrending3: { ar: "إطلالات العيد", en: "Occasion edits" },
+  searchRecent1: { ar: "فستان سهرة", en: "Evening dress" },
+  searchRecent2: { ar: "حقيبة جلد", en: "Leather bag" },
+  sortNewest: { ar: "الأحدث", en: "Newest" },
+  sortPriceAsc: { ar: "السعر: من الأقل", en: "Price: low to high" },
+  sortPriceDesc: { ar: "السعر: من الأعلى", en: "Price: high to low" },
+  sortRating: { ar: "الأعلى تقييماً", en: "Top rated" },
+  filterTitle: { ar: "تصفية النتائج", en: "Filter results" },
+  maxPrice: { ar: "أقصى سعر", en: "Max price" },
+  minRating: { ar: "أدنى تقييم", en: "Min rating" },
+  applyFilters: { ar: "تطبيق", en: "Apply" },
+  resetFilters: { ar: "إعادة ضبط", en: "Reset" },
+
+  // ---------- Categories ----------
+  all: { ar: "الكل", en: "All" },
+  women: { ar: "نسائي", en: "Women" },
+  men: { ar: "رجالي", en: "Men" },
+  kids: { ar: "أطفال", en: "Kids" },
+  shoesAndBags: { ar: "الأحذية والحقائب", en: "Shoes & bags" },
+  exploreCollection: { ar: "اكتشفي المجموعة", en: "Explore collection" },
+  dresses: { ar: "فساتين", en: "Dresses" },
+  topsAndShirts: { ar: "توبات وقمصان", en: "Tops & shirts" },
+  abayasAndCoats: { ar: "عبايات ومعاطف", en: "Abayas & coats" },
+  trousersAndSkirts: { ar: "بناطيل وتنانير", en: "Trousers & skirts" },
+  shirts: { ar: "قمصان", en: "Shirts" },
+  tshirts: { ar: "تيشيرتات", en: "T-shirts" },
+  trousers: { ar: "بناطيل", en: "Trousers" },
+  jackets: { ar: "جاكيتات", en: "Jackets" },
+  womensShoes: { ar: "أحذية نسائية", en: "Women’s shoes" },
+  mensShoes: { ar: "أحذية رجالية", en: "Men’s shoes" },
+  handbags: { ar: "حقائب يد", en: "Handbags" },
+  backpacks: { ar: "حقائب ظهر", en: "Backpacks" },
+  categoryDresses: { ar: "فساتين", en: "Dresses" },
+  categoryMen: { ar: "رجالي", en: "Men" },
+  categoryShoes: { ar: "أحذية", en: "Shoes" },
+  categoryBags: { ar: "حقائب", en: "Bags" },
+  categoryAccessories: { ar: "إكسسوارات", en: "Accessories" },
+
+  // ---------- Size guide ----------
+  sizeGuideIntro: { ar: "دليل مقاسات الفستان", en: "Dress size guide" },
+  sizeGuideText: {
+    ar: "قياسات المنتج الفعلية تختلف عن قياسات الجسم. قارنيها بقطعة تناسبكِ جيداً.",
+    en: "Product measurements differ from body measurements. Compare them with a garment that fits you well.",
+  },
+  measurementUnit: { ar: "وحدة القياس", en: "Measurement unit" },
+  cm: { ar: "سم", en: "cm" },
+  inch: { ar: "بوصة", en: "in" },
+  productMeasurements: { ar: "قياسات المنتج", en: "Product measurements" },
+  measurementsNote: {
+    ar: "جميع القياسات تقريبية وقابلة للقراءة كنص.",
+    en: "All measurements are approximate and available as readable text.",
+  },
+  bust: { ar: "الصدر", en: "Bust" },
+  waist: { ar: "الخصر", en: "Waist" },
+  hips: { ar: "الأرداف", en: "Hips" },
+  length: { ar: "الطول", en: "Length" },
+  sizeEstimateNote: {
+    ar: "التوصية تقديرية ولا تضمن الملاءمة.",
+    en: "Recommendations are estimates and do not guarantee fit.",
+  },
+  noMeasurements: {
+    ar: "لا تتوفر بيانات قياسات لهذا المنتج.",
+    en: "Measurement data is not available for this product.",
+  },
+
+  // ---------- Auth ----------
+  authJoinTitle: { ar: "انضمّي إلى نسيج", en: "Join NASEEJ" },
+  authLoginTitle: { ar: "مرحباً بعودتكِ", en: "Welcome back" },
+  authLoginSubtitle: { ar: "سجّلي الدخول لمتابعة رحلتكِ", en: "Log in to continue your journey" },
+  authRegisterSubtitle: {
+    ar: "أنشئي حسابكِ في خطوات بسيطة",
+    en: "Create your account in a few simple steps",
+  },
+  fullName: { ar: "الاسم الكامل", en: "Full name" },
+  fullNamePlaceholder: { ar: "اكتبي اسمكِ", en: "Your full name" },
+  email: { ar: "البريد الإلكتروني", en: "Email address" },
+  emailPlaceholder: { ar: "name@example.com", en: "name@example.com" },
+  password: { ar: "كلمة المرور", en: "Password" },
+  passwordPlaceholder: { ar: "••••••••", en: "••••••••" },
+  confirmPassword: { ar: "تأكيد كلمة المرور", en: "Confirm password" },
+  rememberMe: { ar: "تذكريني", en: "Remember me" },
+  forgotPassword: { ar: "نسيت كلمة المرور؟", en: "Forgot password?" },
+  createAccountShort: { ar: "إنشاء الحساب", en: "Create account" },
+  newToBrand: { ar: "ليس لديكِ حساب؟", en: "New to NASEEJ?" },
+  alreadyHaveAccount: { ar: "لديكِ حساب بالفعل؟", en: "Already have an account?" },
+  createOne: { ar: "إنشاء حساب", en: "Create one" },
+  termsNotice: {
+    ar: "بالمتابعة، أنتِ توافقين على الشروط وسياسة الخصوصية.",
+    en: "By continuing, you agree to our Terms and Privacy Policy.",
+  },
+  errEmailRequired: { ar: "البريد الإلكتروني مطلوب", en: "Email is required" },
+  errEmailInvalid: { ar: "البريد الإلكتروني غير صالح", en: "Enter a valid email" },
+  errPasswordRequired: { ar: "كلمة المرور مطلوبة", en: "Password is required" },
+  errPasswordShort: {
+    ar: "كلمة المرور يجب أن تكون ٦ أحرف على الأقل",
+    en: "Password must be at least 6 characters",
+  },
+  errPasswordMismatch: { ar: "كلمتا المرور غير متطابقتين", en: "Passwords do not match" },
+  errNameRequired: { ar: "الاسم مطلوب", en: "Name is required" },
+  errInvalidCredentials: {
+    ar: "بيانات الدخول غير صحيحة.",
+    en: "Invalid credentials.",
+  },
+  errEmailExists: {
+    ar: "البريد مستخدم بالفعل. سجّلي الدخول أو استخدمي بريداً آخر.",
+    en: "Email already registered. Log in or use another email.",
+  },
+  authDemoHint: {
+    ar: "هذه محاكاة محلية لأغراض العرض فقط — ليست مصادقة إنتاجية.",
+    en: "This is a local demonstration — not production authentication.",
+  },
+
+  // ---------- Checkout ----------
+  checkoutAddress: { ar: "العنوان", en: "Address" },
+  checkoutDelivery: { ar: "التوصيل", en: "Delivery" },
+  checkoutPayment: { ar: "الدفع", en: "Payment" },
+  checkoutReview: { ar: "المراجعة", en: "Review" },
+  chooseAddress: { ar: "اختاري عنوان التوصيل", en: "Choose delivery address" },
+  addNewAddress: { ar: "إضافة عنوان جديد", en: "Add new address" },
+  homeLabel: { ar: "المنزل", en: "Home" },
+  addAddressTitle: { ar: "عنوان جديد", en: "New address" },
+  recipient: { ar: "اسم المستلم", en: "Recipient name" },
+  city: { ar: "المدينة", en: "City" },
+  addressLine: { ar: "العنوان التفصيلي", en: "Street address" },
+  saveAddress: { ar: "حفظ العنوان", en: "Save address" },
+  setDefault: { ar: "تعيين كافتراضي", en: "Set as default" },
+  errAddressIncomplete: {
+    ar: "يرجى إكمال جميع حقول العنوان",
+    en: "Please complete all address fields",
+  },
+  deliveryMethod: { ar: "طريقة التوصيل", en: "Delivery method" },
+  deliveryHint: {
+    ar: "تظهر الخيارات والرسوم المتاحة فعلياً لعنوانك فقط.",
+    en: "Only methods and fees actually available for your address are shown.",
+  },
+  standardDelivery: { ar: "التوصيل القياسي", en: "Standard delivery" },
+  expressDelivery: { ar: "التوصيل السريع", en: "Express delivery" },
+  unavailableForAddress: { ar: "غير متاح لهذا العنوان", en: "Not available for this address" },
+  deliveryTimingLater: {
+    ar: "تفاصيل الموعد عند توفرها",
+    en: "Timing shown when available",
+  },
+  paymentMethod: { ar: "طريقة الدفع", en: "Payment method" },
+  paymentHint: {
+    ar: "اختاري من الطرق المتاحة لهذا الطلب.",
+    en: "Choose from methods available for this order.",
+  },
+  cardPayment: { ar: "بطاقة ائتمانية أو مدى", en: "Credit or debit card" },
+  cod: { ar: "الدفع عند الاستلام", en: "Cash on delivery" },
+  cardholderName: { ar: "الاسم على البطاقة", en: "Cardholder name" },
+  cardholderPlaceholder: { ar: "كما يظهر على البطاقة", en: "As shown on card" },
+  cardNumber: { ar: "رقم البطاقة", en: "Card number" },
+  cardNumberPlaceholder: { ar: "••••  ••••  ••••  ••••", en: "••••  ••••  ••••  ••••" },
+  expiry: { ar: "تاريخ الانتهاء", en: "Expiry" },
+  securityCode: { ar: "رمز الأمان", en: "Security code" },
+  reviewOrder: { ar: "راجعي طلبكِ", en: "Review your order" },
+  deliveryAddress: { ar: "عنوان التوصيل", en: "Delivery address" },
+  paymentCard: { ar: "بطاقة دفع", en: "Payment card" },
+  continue: { ar: "متابعة", en: "Continue" },
+  placeOrder: { ar: "تأكيد الطلب", en: "Place order" },
+  checkoutDemoNotice: {
+    ar: "طلب تجريبي محلي — لا تتم أي عملية دفع فعلية.",
+    en: "Local demo order — no real payment is processed.",
+  },
+  qty: { ar: "الكمية", en: "Qty" },
+  guestCheckoutTitle: { ar: "خطوة واحدة قبل الدفع", en: "One step before checkout" },
+  guestCheckoutText: {
+    ar: "سجّلي الدخول أو أنشئي حساباً لإكمال الطلب. سنحتفظ بالحقيبة والمفضّلات كما هي.",
+    en: "Log in or create an account to complete your order. Your bag and wishlist will stay exactly as they are.",
+  },
+  continueShopping: { ar: "متابعة التسوق", en: "Continue shopping" },
+  logoutTitle: { ar: "تسجيل الخروج؟", en: "Log out?" },
+  logoutText: {
+    ar: "ستعودين إلى تجربة الزائر. ستبقى العناصر المحلية في حقيبتكِ وقائمة أمنياتكِ.",
+    en: "You’ll return to the guest experience. Local bag and wishlist items will be preserved.",
+  },
+  yesLogout: { ar: "نعم، تسجيل الخروج", en: "Yes, log out" },
+  staySignedIn: { ar: "البقاء في الحساب", en: "Stay signed in" },
+  loggedOutToast: { ar: "تم تسجيل الخروج بأمان", en: "You have been logged out" },
+  loggedInToast: { ar: "مرحباً بعودتكِ", en: "Welcome back" },
+
+  // ---------- Orders ----------
+  allOrders: { ar: "الكل", en: "All" },
+  activeOrders: { ar: "قيد التنفيذ", en: "Active" },
+  completedOrders: { ar: "مكتملة", en: "Completed" },
+  sampleOrder: { ar: "طلب تجريبي", en: "Sample order" },
+  processing: { ar: "قيد التجهيز", en: "Processing" },
+  shipped: { ar: "تم الشحن", en: "Shipped" },
+  delivered: { ar: "تم التوصيل", en: "Delivered" },
+  cancelled: { ar: "ملغي", en: "Cancelled" },
+  viewOrderDetails: { ar: "عرض التفاصيل والتتبّع", en: "View details & tracking" },
+  itemsCount: { ar: "قطعتان", en: "2 items" },
+  orderDetailsTitle: { ar: "تفاصيل الطلب", en: "Order details" },
+  orderTimeline: { ar: "حالة الطلب", en: "Order status" },
+  orderEmpty: { ar: "لا توجد طلبات بعد", en: "No orders yet" },
+  orderEmptyText: {
+    ar: "عند إتمام أول طلب تجريبي ستظهر تفاصيله هنا.",
+    en: "Complete a demo checkout and your order will appear here.",
+  },
+  orderNumber: { ar: "رقم الطلب", en: "Order number" },
+  orderDate: { ar: "التاريخ", en: "Date" },
+
+  // ---------- Notifications ----------
+  unread: { ar: "غير مقروء", en: "Unread" },
+  notificationCount: { ar: "٣ إشعارات", en: "3 notifications" },
+  markAllRead: { ar: "تحديد الكل كمقروء", en: "Mark all as read" },
+  notifOrderTitle: { ar: "تحديث على طلبكِ", en: "Your order has an update" },
+  notifOrderBody: {
+    ar: "اطّلعي على آخر حالة للطلب من صفحة التتبّع.",
+    en: "See the latest status on the tracking page.",
+  },
+  notifWishlistTitle: { ar: "قطعة من مفضّلاتكِ متاحة", en: "A wishlist item is available" },
+  notifWishlistBody: {
+    ar: "عادت القطعة التي حفظتِها إلى المخزون.",
+    en: "An item you saved is back in stock.",
+  },
+  notifSeasonTitle: { ar: "اكتشفي تحرير الموسم", en: "Discover the season edit" },
+  notifSeasonBody: {
+    ar: "اختيارات جديدة وصلت إلى نسيج.",
+    en: "New selections have arrived at NASEEJ.",
+  },
+  twoHoursAgo: { ar: "منذ ساعتين", en: "2h ago" },
+  yesterday: { ar: "أمس", en: "Yesterday" },
+  threeDaysAgo: { ar: "منذ ٣ أيام", en: "3d ago" },
+  noNotifications: { ar: "لا توجد إشعارات", en: "No notifications" },
+
+  // ---------- Settings ----------
+  preferences: { ar: "التفضيلات", en: "Preferences" },
+  language: { ar: "اللغة", en: "Language" },
+  currency: { ar: "العملة", en: "Currency" },
+  accountAndSupport: { ar: "الحساب والمساعدة", en: "Account & support" },
+  personalInfo: { ar: "المعلومات الشخصية", en: "Personal information" },
+  addressManagement: { ar: "إدارة العناوين", en: "Address management" },
+  notificationPrefs: { ar: "تفضيلات الإشعارات", en: "Notification preferences" },
+  privacyTerms: { ar: "الخصوصية والشروط", en: "Privacy & terms" },
+  returnPolicy: { ar: "سياسة الإرجاع", en: "Return policy" },
+  contactSupport: { ar: "تواصل معنا", en: "Contact support" },
+
+  // ---------- Currency ----------
+  chooseCurrency: { ar: "اختاري العملة", en: "Choose currency" },
+  currencySheetHint: {
+    ar: "تُعرض الأسعار دون خلط بين العملات",
+    en: "Prices are never mixed across currencies",
+  },
+  searchCurrency: { ar: "ابحثي بالاسم أو الرمز", en: "Search name or code" },
+  currencyDemoNote: {
+    ar: "أسعار الصرف المعروضة قيم تجريبية محلية وليست أسعاراً رسمية أو محدّثة. سيتم ربطها بمصدر موثوق عند ربط المتجر بالخادم.",
+    en: "Displayed exchange rates are local demo values, not official or live rates. They will be sourced from the store backend once connected.",
+  },
+  currencySelected: { ar: "تم اختيار", en: "selected" },
+
+  // ---------- Support ----------
+  supportTitle: { ar: "كيف يمكننا مساعدتكِ؟", en: "How can we help?" },
+  supportText: {
+    ar: "فريق نسيج هنا للإجابة عن أسئلتكِ حول الطلبات والمقاسات والإرجاع.",
+    en: "The NASEEJ team is here for questions about orders, sizing and returns.",
+  },
+  supportEmail: { ar: "راسلينا على", en: "Email us at" },
+  supportFaqTitle: { ar: "الأسئلة الشائعة", en: "Frequently asked" },
+  supportCopyEmail: { ar: "نسخ البريد", en: "Copy email" },
+  supportCopied: { ar: "تم نسخ البريد الإلكتروني", en: "Email copied" },
+  faqReturnsQ: { ar: "ما هي سياسة الإرجاع؟", en: "What is the return policy?" },
+  faqReturnsA: {
+    ar: "يمكنكِ طلب الإرجاع خلال ١٤ يوماً من الاستلام وفقاً للشروط. (محتوى توضيحي)",
+    en: "You may request a return within 14 days of delivery, subject to terms. (Illustrative content)",
+  },
+  faqShippingQ: { ar: "متى يصل طلبي؟", en: "When will my order arrive?" },
+  faqShippingA: {
+    ar: "تظهر مواعيد التوصيل المتاحة عند إتمام الطلب. (محتوى توضيحي)",
+    en: "Available delivery dates are shown at checkout. (Illustrative content)",
+  },
+  faqSizeQ: { ar: "كيف أختار مقاسي؟", en: "How do I choose my size?" },
+  faqSizeA: {
+    ar: "راجعي دليل المقاسات المتاح في صفحة المنتج.",
+    en: "Refer to the size guide on the product page.",
+  },
+
+  // ---------- Confirmation ----------
+  confirmationEyebrow: { ar: "نسيج", en: "NASEEJ" },
+  confirmationTitle: { ar: "شكراً لكِ، تم استلام طلبكِ", en: "Thank you, your order is received" },
+  confirmationText: {
+    ar: "هذا طلب تجريبي محلي. لن يتم تحصيل أي مبلغ فعلي.",
+    en: "This is a local demo order. No real payment has been taken.",
+  },
+  illustrativeOrderNumber: { ar: "رقم الطلب التوضيحي", en: "Illustrative order number" },
+  orderStatus: { ar: "حالة الطلب", en: "Order status" },
+  awaitingConfirmation: { ar: "بانتظار التأكيد", en: "Awaiting confirmation" },
+  viewOrder: { ar: "عرض تفاصيل الطلب", en: "View order details" },
+} as const;
+
+export type TranslationKey = keyof typeof translations;
+
+export function translate(lang: Lang, key: TranslationKey): string {
+  return translations[key][lang];
+}
